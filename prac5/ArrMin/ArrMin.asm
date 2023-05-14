@@ -3,6 +3,7 @@
 
 // Put your code here.
 
+
 // Initialize index and smallest to 0
 @i
 M=0
@@ -32,18 +33,23 @@ D=M
 A=D+M
 D=M
 
-// Compare with current smallest
+// Check if less than smallest
 @R0
-D=M-D
-@UPDATE
-D;JGT
+D=D-M
+@LESS
+D;JLT
 
 // If false, continue to next iteration
 @CONTINUE
 0;JMP
 
 // If true, update smallest
-(UPDATE)
+(LESS)
+@R1
+D=M
+@i
+A=D+M
+D=M
 @R0
 M=D
 
@@ -57,5 +63,6 @@ M=M+1
 0;JMP
 
 (END)
+
 
 
